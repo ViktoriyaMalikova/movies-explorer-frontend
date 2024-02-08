@@ -5,12 +5,16 @@ import { useLocation } from 'react-router-dom';
 import Main from '../Main/Main';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import Profile from '../Profile/Profile';
+import user from '../../utils/user';
 import './App.css';
 
 function App() {
 
   const { pathname } = useLocation();
-  const [isloggedIn, setLoggedIn] = React.useState(false);
+  const [isloggedIn, setLoggedIn] = React.useState(true);
 
   const visibleHeader =
     pathname === "/" ||
@@ -29,6 +33,9 @@ function App() {
         {visibleHeader && <Header isLoggedIn={isloggedIn} />}
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/saved-movies" element={<SavedMovies />} />
+          <Route path="/profile" element={<Profile user={user} />} />
         </Routes>
         {visibleFooter && <Footer />}
       </div>

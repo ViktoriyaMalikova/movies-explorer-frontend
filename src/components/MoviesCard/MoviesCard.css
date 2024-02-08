@@ -1,0 +1,103 @@
+.movies-list__item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 18px 0;
+    background-color: #222;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+}
+
+.movies-list__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 18px 18px;
+}
+
+.movies-list__name {
+    margin: 0;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.movies-list__duration {
+    margin: 0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #8b8b8b;
+}
+
+.movies-list__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 18px;
+}
+
+.movies-list__button {
+    all: unset;
+    align-self: center;
+    text-align: center;
+    width: 100px;
+    height: 29px;
+    border-radius: 30px;
+    background-color: #313131;
+    font-weight: 400px;
+    font-size: 12px;
+    line-height: 0.92;
+}
+
+.movies-list__delete-button {
+    all: unset;
+    align-self: center;
+    width: 100px;
+    height: 29px;
+    border-radius: 30px;
+    background-color: #313131;
+    background-image: url(../../images/Movies_delete-button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 6.84px 6.72px;
+}
+
+.movies-list__save-button {
+    all: unset;
+    align-self: center;
+    width: 100px;
+    height: 29px;
+    border-radius: 30px;
+    background-color: #ee3465;
+    background-image: url(../../images/Movies_save-button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+@media (max-width: 767px) {
+    .movies-list__item {
+        padding: 14px 0;
+    }
+
+    .movies-list__wrapper {
+        margin: 0 14px 14px;
+    }
+
+    .movies-list__name {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .movies-list__duration {
+        font-size: 10px;
+        line-height: 1.8;
+    }
+
+    .movies-list__image {
+        margin-bottom: 14px;
+    }
+}
