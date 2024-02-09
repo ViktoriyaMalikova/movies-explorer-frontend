@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './Profile.css';
 
 function Profile({ user }) {
@@ -8,8 +9,6 @@ function Profile({ user }) {
     function hendleEditProfile() {
         setIsEditProfile(!isEditProfile);
     }
-
-
 
     return (
         <main className="profile">
@@ -49,7 +48,7 @@ function Profile({ user }) {
                         <button type="submit" className="profile-button profile-button_type_edit" onClick={hendleEditProfile}>Редактировать</button>
                     }
 
-                    <button className="profile-button profile-button_type_logout">Выйти из аккаунта</button>
+                    <Link to="/signin" className="profile-button profile-button_type_logout">Выйти из аккаунта</Link>
                 </form>
             </section>
         </main>

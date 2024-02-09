@@ -1,0 +1,21 @@
+.authorization__label-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.21;
+    color: #8b8b8b;
+    border-bottom: 1px solid #424242;
+    margin-bottom: 24px;
+}
+
+.authorization__item {
+    all: unset;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.21;
+    color: #fff;
+    margin-bottom: 10px;
+}

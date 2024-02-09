@@ -16,7 +16,7 @@ function Header({ isLoggedIn }) {
         <header className={pathname === "/" ? "header header_landing" : "header"}>
             <div className="header__wrapper">
                 <Link to="/">
-                    <img src={logo} alt="Логотип сайта" className="header__logo" />
+                    <img src={logo} alt="Логотип сайта" className="logo header__logo" />
                 </Link>
                 <Navigation isNav={nav} onClick={handleOpenNav} isloggedIn={isLoggedIn} />
                 {isLoggedIn && <button type="button" onClick={handleOpenNav} className="navigation__burger-menu"></button>}

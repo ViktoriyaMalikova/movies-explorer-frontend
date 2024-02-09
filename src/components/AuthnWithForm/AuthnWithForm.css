@@ -1,0 +1,102 @@
+.authorization__authorization-section {
+    padding: 70px 0;
+    margin: 0 auto;
+    width: 396px;
+}
+
+.authorization__logo {
+    display: block;
+    margin-bottom: 40px;
+}
+
+.authorization__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authorization__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.authorization__title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.21;
+    margin-bottom: 40px;
+    align-self: start;
+}
+
+.authorization__button {
+    all: unset;
+    width: 396px;
+    height: 45px;
+    border-radius: 3px;
+    margin-top: 197px;
+    background-color: #4285f4;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.21;
+    margin-bottom: 16px;
+}
+
+.authorization__button_type_signup {
+    margin-top: 129px;
+}
+
+.authorization__text-button {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.21;
+    color: #8b8b8b;
+}
+
+.authorization__link {
+    text-decoration: none;
+    color: #4285f4;
+    margin-left: 6px;
+}
+
+@media (max-width: 1023px) {
+    .authorization__authorization-section {
+        padding: 232px 0;
+    }
+}
+
+@media (max-width: 678px) {
+    .authorization__authorization-section {
+        padding: 56px 30px;
+        width: 260px;
+    }
+
+    .authorization__button {
+        width: 260px;
+        height: 45px;
+        margin-top: 286px;
+        margin-bottom: 14px;
+        font-size: 12px;
+    }
+
+    .authorization__button_type_signup {
+        margin-top: 216px;
+    }
+
+    .authorization__text-button {
+        font-size: 12px;
+    }
+
+    .authorization__logo {
+        margin: 0 auto 50px;
+    }
+
+    .authorization__title {
+        align-self: center;
+        margin-bottom: 80px;
+    }
+}
