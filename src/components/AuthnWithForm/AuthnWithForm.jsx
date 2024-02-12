@@ -18,9 +18,12 @@ function AuthnWithForm({ children, title, btnTitle, name }) {
                         className="authorization__form"
                     >
                         {children}
-                        <button className={`authorization__button ${name === "signup" ? "authorization__button_type_signup" : ""}`} type="submit">
-                            {btnTitle}
-                        </button>
+                        <div className={`authorization__button-wrapper ${name === "signup" ? "authorization__button-wrapper_type_signup" : ""}`}>
+                            <span className="authorization__error-text"></span>
+                            <button className="authorization__button" type="submit">
+                                {btnTitle}
+                            </button>
+                        </div>
                         {name === "signup" && <p className="authorization__text-button">
                             Уже зарегистрированы?
                             <Link to="/signin" className="authorization__link">

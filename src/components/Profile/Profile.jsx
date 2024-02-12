@@ -29,6 +29,7 @@ function Profile({ user }) {
                                 maxLength="30"
                             />
                         </label>
+                        <span className="profile__input-error"></span>
                         <label className="profile__container-input profile__container-input_type_title">
                             E-mail
                             <input
@@ -40,16 +41,21 @@ function Profile({ user }) {
                                 defaultValue={user.email}
                             />
                         </label>
+                        <span className="profile__input-error"></span>
                     </div>
+                    <span className="profile__error-text"></span>
                     {isEditProfile
-                        ?
-                        <button type="submit" className="profile-button profile-button_type_save" onClick={hendleEditProfile}>Сохранить</button>
-                        :
-                        <button type="submit" className="profile-button profile-button_type_edit" onClick={hendleEditProfile}>Редактировать</button>
+                        &&
+                        <button type="submit" className="profile__button profile__button_type_save" onClick={hendleEditProfile}>Сохранить</button>
                     }
-
-                    <Link to="/signin" className="profile-button profile-button_type_logout">Выйти из аккаунта</Link>
                 </form>
+                {!isEditProfile
+                    &&
+                    <>
+                        <button type="button" className="profile__button profile__button_type_edit" onClick={hendleEditProfile}>Редактировать</button>
+                        <Link to="/signin" className="profile__button profile__button_type_logout">Выйти из аккаунта</Link>
+                    </>
+                }
             </section>
         </main>
     )

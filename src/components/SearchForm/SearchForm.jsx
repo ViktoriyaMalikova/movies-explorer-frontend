@@ -5,15 +5,17 @@ import './SearchForm.css';
 function SearchForm() {
     return (
         <section className="search">
-            <div className="search__wrapper">
-                <form className="search__form" name="formSearch" noValidate>
+
+            <form className="search__form" name="formSearch" noValidate>
+                <div className="search__wrapper">
                     <input className="search__input" type="text" placeholder="Фильм" name="searchMovie" required />
                     <button className="search__button" type="submit">
                         Поиск
                     </button>
-                </form>
-            </div>
-            <FilterCheckbox />
+                </div>
+                <FilterCheckbox />
+            </form>
+
         </section>
     )
 }

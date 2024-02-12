@@ -9,7 +9,7 @@
     border-radius: 6px;
 }
 
-.movies-list__wrapper {
+.movies-list__wrapper-text {
     display: flex;
     justify-content: space-between;
     margin: 0 18px 18px;
@@ -20,6 +20,7 @@
     font-weight: 500;
     font-size: 15px;
     line-height: 1.2;
+
 }
 
 .movies-list__duration {
@@ -28,6 +29,14 @@
     font-size: 13px;
     line-height: 1.4;
     color: #8b8b8b;
+}
+
+.movies-list__link-movie {
+    cursor: pointer;
+}
+
+.movies-list__link-movie:hover {
+    opacity: 0.8;
 }
 
 .movies-list__image {
@@ -50,6 +59,11 @@
     font-weight: 400px;
     font-size: 12px;
     line-height: 0.92;
+    cursor: pointer;
+}
+
+.movies-list__button:hover {
+    opacity: 0.8;
 }
 
 .movies-list__delete-button {
@@ -63,6 +77,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 6.84px 6.72px;
+    cursor: pointer;
+}
+
+.movies-list__delete-button:hover {
+    opacity: 0.8;
 }
 
 .movies-list__save-button {
@@ -76,6 +95,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
+    cursor: pointer;
+}
+
+.movies-list__save-button:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 767px) {
@@ -83,7 +107,7 @@
         padding: 14px 0;
     }
 
-    .movies-list__wrapper {
+    .movies-list__wrapper-text {
         margin: 0 14px 14px;
     }
 

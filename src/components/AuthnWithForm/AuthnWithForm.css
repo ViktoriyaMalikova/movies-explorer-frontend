@@ -31,22 +31,51 @@
     align-self: start;
 }
 
+.authorization__button-wrapper {
+    margin-top: 164px;
+}
+
+.authorization__button-wrapper_type_signup {
+    margin-top: 95px;
+}
+
+.authorization__error-text {
+    display: block;
+    font-weight: 400;
+    color: #ff004c;
+    font-size: 11px;
+    line-height: 1.21;
+    height: 14px;
+    text-align: center;
+    opacity: 0;
+}
+
+.authorization__error-text_active {
+    opacity: 1;
+}
+
 .authorization__button {
     all: unset;
     width: 396px;
     height: 45px;
-    border-radius: 3px;
-    margin-top: 197px;
     background-color: #4285f4;
     text-align: center;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.21;
+    margin-top: 20px;
     margin-bottom: 16px;
+    cursor: pointer;
 }
 
-.authorization__button_type_signup {
-    margin-top: 129px;
+.authorization__button:hover {
+    opacity: 0.8;
+}
+
+.authorization__button_inactive {
+    background-color: #f8f8f8;
+    color: #000;
+    pointer-events: none;
 }
 
 .authorization__text-button {
@@ -61,6 +90,11 @@
     text-decoration: none;
     color: #4285f4;
     margin-left: 6px;
+    cursor: pointer;
+}
+
+.authorization__link:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 1023px) {
@@ -69,7 +103,7 @@
     }
 }
 
-@media (max-width: 678px) {
+@media (max-width: 767px) {
     .authorization__authorization-section {
         padding: 56px 30px;
         width: 260px;
@@ -78,13 +112,16 @@
     .authorization__button {
         width: 260px;
         height: 45px;
-        margin-top: 286px;
         margin-bottom: 14px;
         font-size: 12px;
     }
 
-    .authorization__button_type_signup {
-        margin-top: 216px;
+    .authorization__button-wrapper {
+        margin-top: 252px;
+    }
+
+    .authorization__button-wrapper_type_signup {
+        margin-top: 182px;
     }
 
     .authorization__text-button {

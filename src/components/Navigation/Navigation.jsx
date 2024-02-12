@@ -14,17 +14,17 @@ function Navigation({ isNav, onClick, isloggedIn }) {
                 ?
                 <div className={`navigation__links ${isNav ? "navigation__links_visible" : ""}`}>
                     <div className="navigation__links-wrapper">
-                        <Link to="/" className={` navigation__link  navigation__link_type_visible ${pathname === "/" ? "navigation__link_active" : ""}`}>
+                        <Link to="/" onClick={onClick} className={` navigation__link  navigation__link_type_visible ${pathname === "/" ? "navigation__link_active" : ""}`}>
                             Главная
                         </Link>
-                        <Link to="/movies" className={`navigation__link  ${pathname === "/movies" ? " navigation__link_active" : ""}`}>
+                        <Link to="/movies" onClick={onClick} className={`navigation__link  ${pathname === "/movies" ? " navigation__link_active" : ""}`}>
                             Фильмы
                         </Link>
-                        <Link to="/saved-movies" className={`navigation__link ${pathname === "/saved-movies" ? " navigation__link_active" : ""}`}>
+                        <Link to="/saved-movies" onClick={onClick} className={`navigation__link ${pathname === "/saved-movies" ? " navigation__link_active" : ""}`}>
                             Сохраненные фильмы
                         </Link>
                     </div>
-                    <Link to="/profile" className="navigation__link-profile">
+                    <Link to="/profile" onClick={onClick} className="navigation__link-profile">
                         Аккаунт
                         <img src={icon} alt="Значок аккаунта" className={`navigation__icon ${pathname === "/" ? "" : "navigation__icon_dark"}`} />
                     </Link>

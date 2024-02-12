@@ -21,11 +21,17 @@
 }
 
 .not-found__link {
+    all: unset;
     text-decoration: none;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.21;
     color: #4285f4;
+    cursor: pointer;
+}
+
+.not-found__link:hover {
+    opacity: 0.7;
 }
 
 @media (max-width: 1023px) {

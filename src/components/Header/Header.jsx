@@ -21,7 +21,6 @@ function Header({ isLoggedIn }) {
                 <Navigation isNav={nav} onClick={handleOpenNav} isloggedIn={isLoggedIn} />
                 {isLoggedIn && <button type="button" onClick={handleOpenNav} className="navigation__burger-menu"></button>}
             </div>
-
         </header>
     )
 }

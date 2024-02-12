@@ -24,7 +24,7 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .navigation__burger-menu {
         all: unset;
         display: block;
@@ -34,16 +34,15 @@
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-    }
-}
-
-@media (max-width: 767px) {
-    .header {
-        padding: 18px 14px;
+        cursor: pointer;
     }
 }
 
 @media (max-width: 425px) {
+    .header {
+        padding: 18px 14px;
+    }
+
     .navigation__burger-menu {
         height: 43px;
         width: 40px;

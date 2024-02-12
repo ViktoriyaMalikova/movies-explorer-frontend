@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Main from '../Main/Main';
@@ -8,10 +7,10 @@ import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
-import user from '../../utils/user';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import user from '../../utils/user';
 import './App.css';
 
 function App() {
@@ -32,19 +31,17 @@ function App() {
 
   return (
     <div className="page">
-      <div className="page__content">
-        {visibleHeader && <Header isLoggedIn={isloggedIn} />}
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/saved-movies" element={<SavedMovies />} />
-          <Route path="/profile" element={<Profile user={user} />} />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/signin" element={<Login />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-        {visibleFooter && <Footer />}
-      </div>
+      {visibleHeader && <Header isLoggedIn={isloggedIn} />}
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/saved-movies" element={<SavedMovies />} />
+        <Route path="/profile" element={<Profile user={user} />} />
+        <Route path="/signup" element={<Register />} />
+        <Route path="/signin" element={<Login />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      {visibleFooter && <Footer />}
     </div >
   );
 }

@@ -10,8 +10,8 @@ function Login() {
             title="Рады видеть!"
             btnTitle="Войти"
         >
-            <AuthInput type="email" title="E-mail" name="email" />
-            <AuthInput type="password" title="Пароль" name="password" />
+            <AuthInput type="email" title="E-mail" name="email" placeholder="Введите e-mail" />
+            <AuthInput type="password" title="Пароль" name="password" placeholder="Введите пароль" />
         </AuthnWithForm>
     )
 }

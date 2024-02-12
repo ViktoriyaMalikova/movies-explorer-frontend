@@ -43,6 +43,11 @@
     border-radius: 3px;
     font-size: 12px;
     line-height: 1.33;
+    cursor: pointer;
+}
+
+.promo__link:hover {
+    opacity: .7;
 }
 
 .promo__logo {

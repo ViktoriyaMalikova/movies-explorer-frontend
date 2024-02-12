@@ -6,8 +6,6 @@
     font-size: 10px;
     line-height: 1.21;
     color: #8b8b8b;
-    border-bottom: 1px solid #424242;
-    margin-bottom: 24px;
 }
 
 .authorization__item {
@@ -17,5 +15,31 @@
     font-size: 14px;
     line-height: 1.21;
     color: #fff;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #424242;
+}
+
+.authorization__item:focus {
+    border-bottom: 1px solid #4285f4;
+}
+
+.authorization__item_error {
+    color: #ff004c;
+}
+
+.authorization__input-error {
+    align-self: flex-start;
+    display: block;
+    font-weight: 400;
+    color: #ff004c;
+    font-size: 10px;
+    line-height: 1.21;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    height: 12px;
+    opacity: 0;
+}
+
+.authorization__input-error_active {
+    opacity: 1;
 }
