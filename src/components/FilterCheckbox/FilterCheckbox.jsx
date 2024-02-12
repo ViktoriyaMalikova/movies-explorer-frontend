@@ -11,7 +11,7 @@ function FilterCheckbox() {
                     name="filterCheckbox"
                     id="filterCheckbox"
                 />
-                <span className="search__checkbox-button" />
+                <span className="search__checkbox-button" ></span>
             </label>
         </div>
     )

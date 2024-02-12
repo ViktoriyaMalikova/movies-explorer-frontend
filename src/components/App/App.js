@@ -16,7 +16,7 @@ import './App.css';
 function App() {
 
   const { pathname } = useLocation();
-  const [isloggedIn, setLoggedIn] = React.useState(true);
+  const [isloggedIn, setLoggedIn] = React.useState(false);
 
   const visibleHeader =
     pathname === "/" ||
