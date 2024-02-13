@@ -1,0 +1,12 @@
+.movies-list__notfound-wrapper {
+    display: flex;
+    max-width: 1280px;
+    height: 100%;
+}
+
+.movies-list__notfound-title {
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+
+}
