@@ -1,17 +1,51 @@
 import React from 'react';
 import AuthnWithForm from '../AuthnWithForm/AuthnWithForm';
 import AuthInput from '../AuthInput/AuthInput';
+import { useFormWithValidation } from '../../hooks/useFormAndValidation';
+import { EMAIL_REGEX } from '../../utils/constants'
 import './Login.css';
 
-function Login() {
+function Login({ onLogin, isError, errorMessageLogin, onLoading }) {
+
+    const { values, handleChange, errors, isValid } = useFormWithValidation();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        onLogin(values);
+    }
+
     return (
         <AuthnWithForm
             name="signin"
             title="Рады видеть!"
-            btnTitle="Войти"
+            btnTitle={!onLoading ? "Войти" : "Вход..."}
+            onSubmit={handleSubmit}
+            isError={isError}
+            errorMessageLogin={errorMessageLogin}
+            isValid={isValid}
+            onLoading={onLoading}
         >
-            <AuthInput type="email" title="E-mail" name="email" placeholder="Введите e-mail" />
-            <AuthInput type="password" title="Пароль" name="password" placeholder="Введите пароль" />
+            <AuthInput
+                type="email"
+                title="E-mail"
+                name="email"
+                pattern={EMAIL_REGEX}
+                placeholder="Введите e-mail"
+                value={values.email || ""}
+                error={errors.email}
+                onChange={handleChange}
+                onLoading={onLoading}
+            />
+            <AuthInput
+                type="password"
+                title="Пароль"
+                name="password"
+                placeholder="Введите пароль"
+                value={values.password || ""}
+                error={errors.password}
+                onChange={handleChange}
+                onLoading={onLoading}
+            />
         </AuthnWithForm>
     )
 }

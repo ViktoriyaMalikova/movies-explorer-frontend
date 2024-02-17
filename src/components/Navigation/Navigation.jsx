@@ -4,13 +4,13 @@ import './Navigation.css';
 import icon from '../../images/Header-icon.svg';
 
 
-function Navigation({ isNav, onClick, isloggedIn }) {
+function Navigation({ isNav, onClick, loggedIn }) {
 
     const { pathname } = useLocation();
 
     return (
         <nav className="navigation">
-            {isloggedIn
+            {loggedIn
                 ?
                 <div className={`navigation__links ${isNav ? "navigation__links_visible" : ""}`}>
                     <div className="navigation__links-wrapper">

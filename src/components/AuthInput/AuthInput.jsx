@@ -1,7 +1,7 @@
 import React from 'react';
 import './AuthInput.css';
 
-function AuthInput({ title, type, name, minLength, maxLength, placeholder }) {
+function AuthInput({ title, type, name, minLength, maxLength, placeholder, value, onChange, error, pattern, onLoading }) {
     return (
         <>
             <label className="authorization__label-text">
@@ -13,10 +13,15 @@ function AuthInput({ title, type, name, minLength, maxLength, placeholder }) {
                     minLength={minLength}
                     maxLength={maxLength}
                     placeholder={placeholder}
+                    value={value}
+                    onChange={onChange}
+                    pattern={pattern}
                     required
+                    disabled={onLoading}
+
                 />
             </label>
-            <span className="authorization__input-error"></span>
+            <span className="authorization__input-error">{error}</span>
         </>
     )
 }
