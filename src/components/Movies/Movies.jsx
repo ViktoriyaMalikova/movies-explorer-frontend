@@ -1,11 +1,8 @@
 import React, { useCallback } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-
 import * as MoviesApi from '../../utils/MoviesApi.js';
-
 import { handleFilter } from '../../utils/utils.js';
-
 import './Movies.css';
 
 function Movies({ isError, onToggleSaveMovie, onDelete, addMovies, onLoading, setIsLoading, }) {
@@ -25,7 +22,6 @@ function Movies({ isError, onToggleSaveMovie, onDelete, addMovies, onLoading, se
         localStorage.setItem('value', JSON.stringify(value))
         localStorage.setItem('apimovies', JSON.stringify(movies))
         localStorage.setItem('check', JSON.stringify(isCheck))
-
     }, [setFilteredMovies])
 
     // Запрос на поиск

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import Preloader from '../Preloader/Preloader'
-
+import Preloader from '../Preloader/Preloader';
 import { EMPTY_RES, SERVER_ERROR } from '../../utils/constants.js';
 import './MoviesCardList.css';
 

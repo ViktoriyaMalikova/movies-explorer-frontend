@@ -5,7 +5,7 @@ import { useFormWithValidation } from '../../hooks/useFormAndValidation';
 import { NAME_REGEX, EMAIL_REGEX } from '../../utils/constants'
 import './Register.css';
 
-function Register({ onRegister, isError, errorMessageRegister, onLoading }) {
+function Register({ onRegister, isError, setIsError, errorMessageRegister, onLoading }) {
 
     const { values, handleChange, errors, isValid } = useFormWithValidation();
 
@@ -13,6 +13,11 @@ function Register({ onRegister, isError, errorMessageRegister, onLoading }) {
         e.preventDefault();
         onRegister(values);
     }
+
+    React.useEffect(() => {
+        setIsError(false);
+    }, [setIsError])
+
 
     return (
         <AuthnWithForm

@@ -5,7 +5,7 @@ import { useFormWithValidation } from '../../hooks/useFormAndValidation';
 import { EMAIL_REGEX } from '../../utils/constants'
 import './Login.css';
 
-function Login({ onLogin, isError, errorMessageLogin, onLoading }) {
+function Login({ onLogin, isError, setIsError, errorMessageLogin, onLoading }) {
 
     const { values, handleChange, errors, isValid } = useFormWithValidation();
 
@@ -13,6 +13,10 @@ function Login({ onLogin, isError, errorMessageLogin, onLoading }) {
         e.preventDefault();
         onLogin(values);
     }
+
+    React.useEffect(() => {
+        setIsError(false);
+    }, [setIsError])
 
     return (
         <AuthnWithForm

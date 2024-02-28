@@ -13,9 +13,8 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { useLocalStorageState } from '../../hooks/useLocalStorageState.js';
-
-import './App.css';
 import * as MainApi from '../../utils/MainApi.js.js';
+import './App.css';
 
 import {
   ERROR_CONFLICT_EMAIL,
@@ -150,16 +149,6 @@ function App() {
     navigate('/');
   }
 
-  React.useEffect(() => {
-    setIsError(false);
-  }, [navigate])
-
-  React.useEffect(() => {
-    if (loggedIn && (registerPage || loginPage)) {
-      navigate("/movies");
-    }
-  }, [navigate, loggedIn, pathname, registerPage, loginPage]);
-
   //Открытие редактирования профиля
   function handleOpenEditProfile() {
     setIsOpenEditProfile(true);
@@ -171,7 +160,6 @@ function App() {
     const token = localStorage.getItem('token');
     MainApi.setInfoProfile(name, email, token)
       .then((userData) => {
-
         setCurrentUser(userData)
         setIsError(false);
         setIsSuccessful(true);
@@ -235,6 +223,12 @@ function App() {
     }
   }
 
+  React.useEffect(() => {
+    if (loggedIn && (registerPage || loginPage)) {
+      navigate("/movies");
+    }
+  }, [navigate, loggedIn, pathname, registerPage, loginPage]);
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -271,12 +265,14 @@ function App() {
           <Route path="/signup" element={<Register
             onRegister={handleRegister}
             isError={isError}
+            setIsError={setIsError}
             errorMessageRegister={isErrorMessageRegister}
             onLoading={isLoading}
           />} />
           <Route path="/signin" element={<Login
             onLogin={handleLogin}
             isError={isError}
+            setIsError={setIsError}
             errorMessageLogin={isErrorMessageLogin}
             onLoading={isLoading}
           />} />
