@@ -9,6 +9,8 @@ Frontend для дипломного проекта
 
 [Frontend](https://movies.vika.nomoredomainsmonster.ru)
 
+[Ссылка на пул реквест](https://github.com/ViktoriyaMalikova/movies-explorer-frontend/pull/2)
+
 ## Запуск проекта
 
 `npm start` — запускает в режиме разработки 
