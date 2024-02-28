@@ -20,6 +20,10 @@
     font-weight: 500;
     font-size: 15px;
     line-height: 1.2;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
 }
 
@@ -33,6 +37,8 @@
 
 .movies-list__link-movie {
     cursor: pointer;
+    height: 200px;
+    margin-bottom: 18px;
 }
 
 .movies-list__link-movie:hover {
@@ -42,10 +48,10 @@
 .movies-list__image {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    margin-bottom: 18px;
+
 }
 
 .movies-list__button {
@@ -102,6 +108,16 @@
     opacity: 0.8;
 }
 
+
+@media (max-width: 1023px) {
+
+    .movies-list__link-movie {
+        height: 190px;
+    }
+
+}
+
+
 @media (max-width: 767px) {
     .movies-list__item {
         padding: 14px 0;
@@ -123,5 +139,10 @@
 
     .movies-list__image {
         margin-bottom: 14px;
+    }
+
+
+    .movies-list__link-movie {
+        height: 168px;
     }
 }

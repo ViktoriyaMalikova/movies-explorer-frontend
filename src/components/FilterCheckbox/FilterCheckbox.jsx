@@ -1,6 +1,15 @@
-import "./FilterCheckbox.css";
 
-function FilterCheckbox() {
+import "./FilterCheckbox.css";
+import { useLocation } from 'react-router-dom';
+
+function FilterCheckbox({ isCheck, toggleFilter, firstEntry }) {
+
+    const { pathname } = useLocation();
+
+    const onClickFilter = (evt) => {
+        toggleFilter(evt.target.checked)
+    }
+
     return (
         <div className="search__checkbox">
             <label className="search__checkbox-label">
@@ -9,7 +18,9 @@ function FilterCheckbox() {
                     className="search__checkbox-input"
                     type="checkbox"
                     name="filterCheckbox"
-                    id="filterCheckbox"
+                    disabled={firstEntry && pathname === "/saved-movies"}
+                    checked={isCheck}
+                    onChange={onClickFilter}
                 />
                 <span className="search__checkbox-button" ></span>
             </label>

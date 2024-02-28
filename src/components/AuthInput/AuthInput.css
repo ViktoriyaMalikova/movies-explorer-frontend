@@ -25,6 +25,7 @@
 
 .authorization__item_error {
     color: #ff004c;
+
 }
 
 .authorization__input-error {
@@ -36,8 +37,8 @@
     line-height: 1.21;
     margin-top: 6px;
     margin-bottom: 6px;
-    height: 12px;
-    opacity: 0;
+    min-height: 12px;
+    opacity: 1;
 }
 
 .authorization__input-error_active {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './AuthnWithForm.css';
 import logo from '../../images/Header-logo.svg';
 
-function AuthnWithForm({ children, title, btnTitle, name }) {
+function AuthnWithForm({ children, title, btnTitle, name, onSubmit, isError, errorMessageLogin, errorMessageRegister, isValid, onLoading }) {
     return (
         <main className="authorization">
             <section className="authorization__authorization-section">
@@ -16,11 +16,14 @@ function AuthnWithForm({ children, title, btnTitle, name }) {
                     </h2>
                     <form
                         className="authorization__form"
+                        disabled={!isValid || onLoading}
+                        onSubmit={onSubmit}
+                        noValidate
                     >
                         {children}
                         <div className={`authorization__button-wrapper ${name === "signup" ? "authorization__button-wrapper_type_signup" : ""}`}>
-                            <span className="authorization__error-text"></span>
-                            <button className="authorization__button" type="submit">
+                            <span className={`authorization__error-text ${isError && "authorization__error-text_active"}`}>{name === "signup" ? errorMessageRegister : errorMessageLogin}</span>
+                            <button className={`authorization__button ${!isValid && "authorization__button_inactive"}`} type='submit'>
                                 {btnTitle}
                             </button>
                         </div>

@@ -22,6 +22,11 @@
     width: 89%;
 }
 
+.search__input:focus {
+    border: 1px solid #4285f4;
+}
+
+
 .search__input::placeholder {
     color: #8b8b8b;
     font-weight: 400;
@@ -53,13 +58,26 @@
     pointer-events: none;
 }
 
+.search__error {
+
+    padding: 2px 0;
+    display: block;
+    text-align: center;
+    color: red;
+    opacity: 0;
+}
+
+.search__error_active {
+    opacity: 1;
+}
+
 @media (max-width: 1023px) {
     .search {
         padding: 70px 30px 0;
     }
 
     .search__input {
-        width: 85%;
+        width: 80%;
     }
 }
 

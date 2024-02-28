@@ -32,7 +32,7 @@
     font-weight: 500;
     font-size: 11px;
     line-height: 1.21;
-
+    height: 15px;
     padding-bottom: 16px;
 }
 
@@ -52,27 +52,27 @@
     font-weight: 400;
     font-size: 11px;
     line-height: 1.21;
+    width: 200px;
 }
 
-.profile__input_type_name {
-    width: 95%;
+
+.profile__input:focus {
+    border: 1px solid #4285f4;
 }
 
 .profile__input-error {
     display: block;
+    text-align: end;
     font-weight: 400;
     color: #ff004c;
     font-size: 10px;
     line-height: 1.21;
-    margin-top: 4px;
-    margin-bottom: 2px;
+    margin-top: 3px;
+    margin-bottom: 3px;
     height: 12px;
-    opacity: 0;
-}
-
-.profile__input-error_type_active {
     opacity: 1;
 }
+
 
 .profile__button {
     all: unset;
@@ -111,7 +111,6 @@
 
 .profile__error-text {
     font-weight: 400;
-    color: #ff004c;
     font-size: 11px;
     line-height: 1.21;
     height: 14px;
@@ -119,7 +118,13 @@
     opacity: 0;
 }
 
-.profile__error-text_active {
+.profile__error-text_type_successful {
+    color: #00ff2a;
+    opacity: 1;
+}
+
+.profile__error-text_type_error {
+    color: #ff004c;
     opacity: 1;
 }
 
