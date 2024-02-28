@@ -18,7 +18,6 @@ function AuthInput({ title, type, name, minLength, maxLength, placeholder, value
                     pattern={pattern}
                     required
                     disabled={onLoading}
-
                 />
             </label>
             <span className="authorization__input-error">{error}</span>

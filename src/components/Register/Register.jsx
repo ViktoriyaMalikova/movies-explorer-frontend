@@ -59,7 +59,6 @@ function Register({ onRegister, isError, errorMessageRegister, onLoading }) {
                 onChange={handleChange}
                 onLoading={onLoading}
             />
-
         </AuthnWithForm>
     )
 }

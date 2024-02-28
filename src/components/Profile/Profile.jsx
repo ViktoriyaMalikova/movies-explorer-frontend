@@ -43,8 +43,6 @@ function Profile({ onSignOut, onUpdateUser, isError, isMessageProfile, isSuccess
                     <div className="profile__info">
                         <label className="profile__container-input profile__container-input_type_name">
                             Имя
-
-
                             <input
                                 className="profile__input profile__input_type_name"
                                 type="text"
@@ -59,7 +57,6 @@ function Profile({ onSignOut, onUpdateUser, isError, isMessageProfile, isSuccess
                                 disabled={!isOpenEditProfile || onLoading}
                                 required
                             />
-
                         </label>
                         <span className="profile__input-error">{errors.name}</span>
                         <label className="profile__container-input profile__container-input_type_title">

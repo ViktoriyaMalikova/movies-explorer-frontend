@@ -16,6 +16,7 @@ import { useLocalStorageState } from '../../hooks/useLocalStorageState.js';
 
 import './App.css';
 import * as MainApi from '../../utils/MainApi.js.js';
+
 import {
   ERROR_CONFLICT_EMAIL,
   ERROR_REGISTER,
@@ -28,16 +29,17 @@ import {
 function App() {
 
   const { pathname } = useLocation();
+
   const [loggedIn, setLoggedIn] = useLocalStorageState('loggedIn', false);
   const [isErrorMessageLogin, setIsErrorMessageLogin] = React.useState("");
   const [isErrorMessageRegister, setIsErrorMessageRegister] = React.useState("");
   const [isMessageProfile, setIsMessageProfile] = React.useState("");
   const [isError, setIsError] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-
+  const [isOpenEditProfile, setIsOpenEditProfile] = React.useState(false);
   const [isSuccessful, setIsSuccessful] = React.useState(false);
-
   const [currentUser, setCurrentUser] = React.useState({});
+  const [addMovies, setAddMovies] = React.useState([]);
 
   const navigate = useNavigate();
 
@@ -55,10 +57,6 @@ function App() {
   const registerPage = pathname === "/signup";
   const loginPage = pathname === "/signin";
 
-  React.useEffect(() => {
-    setIsError(false);
-  }, [navigate])
-
   //Проверка токена
   React.useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -71,19 +69,22 @@ function App() {
             }
           })
           .catch((error) => {
+            setLoggedIn(false);
+            localStorage.clear();
             console.log(error);
           })
       }
     }
   }, [setLoggedIn])
 
-  //Получение данных пользователя после авторизации
+  //Получение данных пользователя и сохраненных фильмов после авторизации
   React.useEffect(() => {
     if (loggedIn) {
       const token = localStorage.getItem("token");
-      MainApi.getInfoProfile(token)
-        .then((dataUser) => {
+      Promise.all([MainApi.getInfoProfile(token), MainApi.getMovies(token)])
+        .then(([dataUser, dataMovie]) => {
           setCurrentUser(dataUser);
+          setAddMovies(dataMovie.reverse());
         })
         .catch((error) => {
           console.log(error);
@@ -144,10 +145,14 @@ function App() {
   //Выход из аккаунта
   function signOut() {
     setLoggedIn(false);
-    localStorage.removeItem('token')
+    localStorage.clear();
     setCurrentUser({});
     navigate('/');
   }
+
+  React.useEffect(() => {
+    setIsError(false);
+  }, [navigate])
 
   React.useEffect(() => {
     if (loggedIn && (registerPage || loginPage)) {
@@ -155,18 +160,16 @@ function App() {
     }
   }, [navigate, loggedIn, pathname, registerPage, loginPage]);
 
-
-
-  const [isOpenEditProfile, setIsOpenEditProfile] = React.useState(false);
-
-
+  //Открытие редактирования профиля
   function handleOpenEditProfile() {
     setIsOpenEditProfile(true);
   }
 
+  //Редактирование данных пользователя
   function handleUpdateUser({ name, email }) {
     setIsLoading(true);
-    MainApi.setInfoProfile(name, email)
+    const token = localStorage.getItem('token');
+    MainApi.setInfoProfile(name, email, token)
       .then((userData) => {
 
         setCurrentUser(userData)
@@ -193,6 +196,44 @@ function App() {
       )
   }
 
+  //Удаление фильма
+  function handleDeleteMovie(savedMovieId) {
+    const token = localStorage.getItem('token');
+    MainApi.deleteMovie(savedMovieId, token)
+      .then(() => {
+        setAddMovies(
+          addMovies.filter((movie) => {
+            return movie._id !== savedMovieId;
+          }),
+        );
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  // Функция, которая добавляет или удаляет фильм из сохраненных
+  function handleToggleSaveMovie(movieCard) {
+    //Проверка, является ли фильм сохраненным
+    const isSavedMovie = addMovies.some((item) => movieCard.id === item.movieId);
+
+    if (!isSavedMovie) {
+      const token = localStorage.getItem('token');
+      MainApi.addMovie(movieCard, token)
+        .then((newMovie) => {
+          setAddMovies([newMovie, ...addMovies]);
+        })
+        .catch((err) => {
+          console.error(err);
+          setIsError(true);
+        });
+    } else {
+      const SavedMovie = addMovies.find((item) => {
+        return item.movieId === movieCard.id;
+      });
+      handleDeleteMovie(SavedMovie._id);
+    }
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -200,8 +241,21 @@ function App() {
         {visibleHeader && <Header loggedIn={loggedIn} />}
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/movies" element={<ProtectedRoute element={Movies} loggedIn={loggedIn} />} />
-          <Route path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} />} />
+          <Route path="/movies" element={<ProtectedRoute
+            element={Movies}
+            loggedIn={loggedIn}
+            onToggleSaveMovie={handleToggleSaveMovie}
+            addMovies={addMovies}
+            onLoading={isLoading}
+            setIsLoading={setIsLoading}
+            isError={isError}
+          />} />
+          <Route path="/saved-movies" element={<ProtectedRoute
+            element={SavedMovies}
+            loggedIn={loggedIn}
+            addMovies={addMovies}
+            onDeleteSaveMovie={handleDeleteMovie}
+          />} />
           <Route path="/profile" element={<ProtectedRoute
             element={Profile}
             onSignOut={signOut}
